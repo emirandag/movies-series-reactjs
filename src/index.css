@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --light-bg-color: #ffffff;
+  --light-title-color: #121212;
+  --light-text-color: #78838e;
+  --light-bg-header: #015699;
+  --light-text-header-footer: #ffffff;
+  --light-bg-hover: #003864;
+  --light-text-hover: #f5f5f5;
+  --light-bg-footer: #78838e;
+
+  --dark-bg-color: #121212;
+  --dark-title-color: #7ddfee;
+  --dark-text-color: #f5f5f5;
+  --dark-bg-header-footer: #00c8e0;
+  --dark-bg-hover: #292929;
+  --dark-text-hover: #7ddfee;
+
+  
+  /*
+    Botones
+  */
+
+  --light-bg-btn-primary: #015699;
+  --light-text-btn-primary: #ffffff;
+  --light-bg-btn-secondary: transparent;
+  --light-text-btn-secondary: #ffffff;
+  --light-border-btn-secondary: #ffffff;
+
+  --dark-bg-btn-primary: #00c8e0;
+  --dark-text-btn-primary: #121212;
+  --dark-bg-btn-secondary: transparent;
+  --dark-text-btn-secondary: #00c8e0;
+  --dark-border-btn-secondary: #00c8e0;
+}

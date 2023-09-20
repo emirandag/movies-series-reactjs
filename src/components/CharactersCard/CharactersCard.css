@@ -1,0 +1,32 @@
+.characters {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+    width: 100%;
+}
+
+.characters-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    width: 70%;
+}
+
+.characters-card {
+    width: 100px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.characters-card img {
+    width: 100px;
+    border-radius: 10px;
+}
+
+.image-generic {
+    width: 100px;
+    height: 150px;
+}

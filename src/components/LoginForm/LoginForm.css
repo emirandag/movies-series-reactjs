@@ -1,0 +1,23 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form input {
+    padding: 8px 5px;
+    border-radius: 5px;
+}
+
+.form button {
+    padding: 8px 5px;
+    border-radius: 5px;
+    transition: 0.5s ease-in-out;
+    border: none;
+}
+.form button:hover {
+    scale: 1.1;
+}
+.form span {
+    color: red;
+}
