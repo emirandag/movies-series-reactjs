@@ -4,6 +4,7 @@ import Card from '../../components/Card/Card';
 import ButtonStyle from '../../components/UI/ButtonStyle/ButtonStyle';
 import { ThemeContext } from '../../context/ThemeProvider';
 import { getAllMovies } from '../../services/API/movie.service';
+import Spinner from '../../components/Spinner/Spinner';
 
 const Movies = () => {
   const { theme } = useContext(ThemeContext);
@@ -90,13 +91,13 @@ const Movies = () => {
   return (
     <>
       <h1>Películas</h1>
-
       <input className="search" onChange={(e) => handleSearch(e.target.value)} />
 
       <div className="cards-container">
         {     
         res?.data?.results === undefined ? (
-          <h1>Loading...</h1>
+          // <h1>Loading...</h1>
+          <Spinner />
         ) : noResultFiltered ? (
             <h2>No hay criterios de búsqueda</h2>
         ) : filteredMovies.length > 0 && filteredMovies.length < res?.data?.results?.length ? (

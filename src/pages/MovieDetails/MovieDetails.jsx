@@ -1,27 +1,22 @@
 
-import { useOutletContext, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import Article from '../../components/Article/Article';
-import useRequest from '../../hooks/useRequest';
+
 import { useEffect, useState } from 'react';
 import { getMovieById } from '../../services/API/movie.service';
+import { getAllMovieCharacters } from '../../services/API/character.service';
 
 const MovieDetails = () => {
 
     const { id } = useParams()
     const [res, setRes] = useState({})
+    const [resCharacters, setResCharacters] = useState({})
 
     console.log(id);
 
-    //const [movies] = useOutletContext() 
-
-    //const foundSeries = movies.results?.find((movie) => movie.id === parseInt(id))
-    //const filteredMovies = movies.results.filter((movie) => console.log('De array:' + typeof movie.id))
-
-    //const { moviesId, moviesCharacters } = useRequest(foundSeries?.id, 'movie')
-    // console.log('pelicula: '+moviesId);
-    // console.log('personajes: '+moviesCharacters);
     const loadPageMovie = async(id) => {
       setRes(await getMovieById(id))
+      setResCharacters(await getAllMovieCharacters(id))
     }
 
     useEffect(() => {
@@ -29,6 +24,7 @@ const MovieDetails = () => {
       
     }, [id]);
     console.log(res);
+    console.log(resCharacters);
   return (
     <>
        {/* {moviesId === undefined && foundSeries === undefined ? <div className='loading'><h1>Loading...</h1></div> : ( 
@@ -37,10 +33,11 @@ const MovieDetails = () => {
         {
         res ? (
           // <Article item={id} characters={moviesCharacters} type='movie' />
-          <Article item={res?.data}  type='movie' />
+          <Article item={res?.data} characters={resCharacters?.data} type='movie' />
         ) 
         : 
-        <div className='loading'><h1>Loading...</h1></div>
+        // <div className='loading'><h1>Loading...</h1></div>
+        <Spinner />
         }
     </>
     

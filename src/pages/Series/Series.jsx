@@ -5,6 +5,7 @@ import Card from '../../components/Card/Card';
 import ButtonStyle from '../../components/UI/ButtonStyle/ButtonStyle';
 import { ThemeContext } from '../../context/ThemeProvider';
 import { getAllSeries } from '../../services/API/serie.service';
+import Spinner from '../../components/Spinner/Spinner';
 
 const Series = () => {
 
@@ -94,7 +95,8 @@ const Series = () => {
       <input className="search" onChange={(e) => handleSearch(e.target.value)} />
       <div className="cards-container">
         {res?.data?.results === undefined ? (
-          <h1>Loading...</h1>
+          // <h1>Loading...</h1>
+          <Spinner />
         ) : noResultFiltered ? (
           <h2>No hay criterios de búsqueda</h2>
         ) : filteredSeries.length > 0  && filteredSeries.length < res?.data?.results?.length ? (

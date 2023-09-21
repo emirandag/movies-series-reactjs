@@ -1,12 +1,18 @@
 
 import CharactersCard from '../CharactersCard/CharactersCard'
+import Spinner from '../Spinner/Spinner';
 import './Article.css'
 
 const Article = ({ item, characters, type}) => {
 
+    console.log(characters);
   return (
     <>
-        {item === undefined ? <div className='loading'><h1>Loading...</h1></div> : (
+        {item === undefined || characters === undefined ? 
+        <Spinner />
+        // <div className='loading'><h1>Loading...</h1></div> 
+        
+        : (
 
         
             
@@ -30,7 +36,7 @@ const Article = ({ item, characters, type}) => {
                                 <p>{item.overview}</p>
                             </div>
                         </article>
-                        {/* <CharactersCard characters={characters} /> */}
+                        <CharactersCard characters={characters} />
                     </>
             ) :  type === 'serie' && (
                 <>
@@ -53,7 +59,7 @@ const Article = ({ item, characters, type}) => {
                     <p>{item.overview === "" ? "No hay información disponible." : item.overview}</p>
                 </div>
             </article>
-            {/* <CharactersCard characters={characters} /> */}
+            <CharactersCard characters={characters} />
         </>
             )
 

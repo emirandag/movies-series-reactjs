@@ -23,9 +23,9 @@ const Navbar = () => {
             <li>
               <NavLink to="movies" onClick={() => setIsOpen(!isOpen)}>Películas</NavLink>
             </li>
-            {/* <li>
+            <li>
               <NavLink to="series" onClick={() => setIsOpen(!isOpen)}>Series</NavLink>
-            </li> */}
+            </li>
           </ul>
         </nav>
       )}
