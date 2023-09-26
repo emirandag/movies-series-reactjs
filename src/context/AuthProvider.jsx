@@ -41,7 +41,7 @@ export const AuthProvider = ({ children }) => {
     userFavorites === null && localStorage.setItem(`${data.user}-Favorites`, JSON.stringify([])) 
     
 
-    navigate('/profile');
+    navigate('/movies');
   };
 
   const logout = () => {

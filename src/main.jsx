@@ -15,7 +15,6 @@ import Page404 from './pages/Page404/Page404';
 import Profile from './pages/Profile/Profile';
 import SerieDetails from './pages/SerieDetails/SerieDetails';
 import Series from './pages/Series/Series';
-import Movies2 from './pages/Movies2';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -65,14 +64,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                   </Protected>
                 }
               />
-              <Route
-                path="/movies2"
-                element={
-                  <Protected>
-                    <Movies2 />
-                  </Protected>
-                }
-              />
+
               <Route path="/*" element={<Page404 />} />
             </Route>
           </Routes>
