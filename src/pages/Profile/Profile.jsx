@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Card from '../../../../movies-series-reactjs copy/src/components/Card/Card';
+import Card from '../../components/Card/Card';
 
 
 const Profile = () => {
