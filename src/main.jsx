@@ -23,37 +23,45 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <AuthProvider>
           <Routes>
             <Route path="/" element={<App />}>
-              <Route index element={<Movies />} />
-              {/* <Route
+              <Route index element={<Login />} />
+              <Route
                 path="/profile"
                 element={
                   <Protected>
                     <Profile />
                   </Protected>
                 }
-              /> */}
+              />
               <Route
                 path="/movies"
                 element={
+                  <Protected>
                     <Movies />
+                  </Protected>
                 }
               />
               <Route
                 path="/series"
                 element={
+                  <Protected>
                     <Series />
+                  </Protected>
                 }
               />
               <Route
                 path="/movies/:id"
                 element={
+                  <Protected>
                     <MovieDetails />
+                  </Protected>
                 }
               />
               <Route
                 path="/series/:id"
                 element={
+                  <Protected>
                     <SerieDetails />
+                  </Protected>
                 }
               />
 
