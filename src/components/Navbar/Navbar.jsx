@@ -17,7 +17,7 @@ const Navbar = () => {
         <nav className={`nav-items ${isOpen && 'open'}`}>
           <ul>
             <li>
-              <NavLink to="movies" onClick={() => setIsOpen(!isOpen)}>Películas</NavLink>
+              <NavLink to="/" onClick={() => setIsOpen(!isOpen)}>Películas</NavLink>
             </li>
             <li>
               <NavLink to="series" onClick={() => setIsOpen(!isOpen)}>Series</NavLink>

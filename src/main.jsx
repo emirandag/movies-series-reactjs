@@ -24,7 +24,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
               <Route index element={<Movies />} />
 
               <Route
-                path="/movies"
+                path="/"
                 element={
                     <Movies />
                 }
