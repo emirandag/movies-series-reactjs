@@ -71,9 +71,8 @@ const Series = () => {
 }
 
   const handleSearch = (value) => {
-    //console.log(value);
-    // console.log(series);
-    const filteredSeries = series.results.filter((serie) =>
+
+    const filteredSeries = res?.data?.results?.filter((serie) =>
       serie.name.toLowerCase().includes(value.toLowerCase()),
     );
     // console.log(filteredSeries);
