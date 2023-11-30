@@ -6,8 +6,6 @@ import { Outlet } from 'react-router-dom';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import { ThemeContext } from './context/ThemeProvider';
-import useRequest from './hooks/useRequest';
-import { useAuth } from './context/AuthProvider';
 
 const App = () => {
   const { theme } = useContext(ThemeContext);
