@@ -36,7 +36,7 @@ console.log(type);
                location.pathname === '/profile' ? <ButtonIcon variant='primary' theme={theme} onClick={() => actionClick()}><MdDeleteForever /></ButtonIcon> : <ButtonIcon variant='primary' theme={theme} onClick={() => actionClick()}><MdFavorite /></ButtonIcon> 
             } */}
 <ButtonIcon variant='primary' theme={theme} onClick={() => actionClick()}><MdFavorite style={{
-    color: resFav?.favoritos?.some((fav) => fav.id == id) ? "red" : "white" 
+    color: resFav?.favoritos?.some((fav) => fav.id == id) ? "red" : theme === 'light' ? "white" : "#121212"
 }}/></ButtonIcon> 
         </figcaption>
     </figure>
