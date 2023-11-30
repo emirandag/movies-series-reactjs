@@ -22,10 +22,10 @@
 
 .color-light header {
     background-color: var(--light-bg-header);
-  color: var(--light-text-header-footer);
+    color: var(--light-text-header-footer);
 }
 .color-dark header {
-    background-color: transparent;
+    background-color: var(--dark-bg-color);
     color: var(--dark-bg-header-footer);
     border-bottom: 1px solid var(--dark-bg-header-footer);
 }
@@ -256,6 +256,12 @@
     .color-dark .nav-items li:hover {
         background: var(--dark-title-color);
     }
+
+    .color-dark .nav-items a:hover {
+        color: var(--dark-bg-color);
+    }
+
+    
 
     .color-light .nav-toggle span{
         background: var(--light-text-header-footer);

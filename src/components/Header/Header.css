@@ -1,12 +1,16 @@
 .header {
+    height: 17vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: sticky;
+    top: 0;
     gap: 1rem;
     width: 100vw;
     background-color: var(--light-bg-header);
     padding: 10px;
+    z-index: 1;
   }
   
   .theme {
