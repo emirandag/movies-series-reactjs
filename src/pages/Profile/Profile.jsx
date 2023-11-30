@@ -3,50 +3,96 @@ import Card from '../../components/Card/Card';
 
 
 const Profile = () => {
+  const [addFav, setAddFav] = useState(false);
+  const [resFav, setResFav] = useState({});
 
-    const user = localStorage.getItem('user')
-
-    //const [favorites, setFavorites] = useState(JSON.parse(localStorage.getItem(`${user}-Favorites`)));
-    const [favorites, setFavorites] = useState(JSON.parse(localStorage.getItem('userApp')));
+  const loadPageMovies = async () => {
+    //const dataMovies = await getAllMovies(page);
+    //setData(dataProject);
+    const userFav = localStorage.getItem("userApp")
     
-    //console.log(favorites.favoritos);
-    const handleClick = (id) => {
+    const favs = JSON.parse(userFav)
+    console.log(favs)
+    setResFav(favs)
+    setAddFav(() => false)
+    console.log(resFav);
+    //setRes(dataMovies)
+}
 
-        const removeFavorite = favorites.favoritos.filter(favorite => favorite.id !== id);
+const handleClickFavorites = (id, title, poster, date, type) => {
+  setAddFav(() => true)
+  const userData = localStorage.getItem('userApp')
+  const userDataParse = JSON.parse(userData)
 
-        localStorage.setItem(`${user}-Favorites`, JSON.stringify(removeFavorite))
-        setFavorites(removeFavorite);
+  console.log(userData);
+  const newFavorite =  { id: id, title: title, poster, date, type: type};
 
-    }
+  const favorites = userDataParse.favoritos
+  console.log(userDataParse);
+  console.log(favorites);
 
+  if (!favorites.some((favorite) => favorite.id === newFavorite.id)) {
+    const addFavorite = [...favorites, newFavorite];
 
+      localStorage.setItem(`userApp`, JSON.stringify({name: userDataParse.name, favoritos: addFavorite}));
+  } else {
+      const updatedFavorites = favorites.filter(
+          (favorite) => favorite.id !== newFavorite.id
+        );
+    
+        localStorage.setItem(
+          'userApp',
+          JSON.stringify({ name: userDataParse.name, favoritos: updatedFavorites })
+        );
+  }
+   
+}
+
+// const handleSearch = (value) => {
+
+//   const filteredMovies = res?.data?.results?.filter((movie) =>
+//     movie.title.toLowerCase().includes(value.toLowerCase()),
+//   );
+
+//   setFilteredMovies(filteredMovies);
+//   setNoResultFiltered(filteredMovies.length === 0);
+// };
+
+useEffect(() => {
+  loadPageMovies();
+}, [addFav]);
 
 
   return (
     <>
 
 
-        <h1>Bienvenido {user}</h1>
+        <h1>Bienvenido</h1>
 
 
         <div className="cards-container">
-          {console.log(favorites.favoritos)}
+          {console.log(resFav.favoritos)}
             {
-            favorites?.favoritos === undefined ? (
+            resFav?.favoritos === undefined ? (
               <h1>Loading ...</h1>
             ) : (
-              favorites?.favoritos?.length === 0 ? (
+              resFav?.favoritos?.length === 0 ? (
                 <p>No tienes favoritos agregados</p>
               ) : (
-                favorites?.favoritos?.map((favorite) => (
+                resFav?.favoritos?.map((favorite) => (
+  
                   <Card
-                    key={favorite.id}
-                    image={favorite.poster}
-                    name={favorite.title}
-                    date={favorite.date}
-                    type={favorite.type}
-                    actionClick={() => handleClick(favorite.id)}
-                  />
+                  key={favorite.id}
+                  id={favorite.id}
+                  image={favorite.poster}
+                  name={favorite.title}
+                  date={favorite.date}
+                  type={favorite.type}
+                  resFav={resFav}
+                  actionClick={() =>
+                    handleClickFavorites(favorite.id, favorite.title, favorite.poster, favorite.date, favorite.type)
+                  }
+                />
                 ))
               )
             )  

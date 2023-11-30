@@ -5,7 +5,7 @@ import ButtonIcon from '../UI/ButtonIcon/ButtonIcon';
 import { useContext } from 'react';
 import { ThemeContext } from '../../context/ThemeProvider';
 
-const Card = ({ id, image, name, date, actionClick, resFav}) => {
+const Card = ({ id, image, name, date, type, actionClick, resFav}) => {
     
   const { theme } = useContext(ThemeContext);
         const location = useLocation()
@@ -13,10 +13,10 @@ const Card = ({ id, image, name, date, actionClick, resFav}) => {
 
         //console.log(location.pathname);
 
-        const handleCheckId = (id) => {
-
+        const handleCheckId = (id, type) => {
+console.log(type);
           // if (location.pathname !== '/profile') {
-            navigate(`${location.pathname}/${id}`);
+            navigate(`${location.pathname}/${id}`, {state: type});
           // }
           
           
@@ -24,7 +24,7 @@ const Card = ({ id, image, name, date, actionClick, resFav}) => {
 
   return (
     <figure className='card' >
-        <img src={`https://image.tmdb.org/t/p/w500/${image}`} alt={name} onClick={() => (handleCheckId(id))} />
+        <img src={`https://image.tmdb.org/t/p/w500/${image}`} alt={name} onClick={() => (handleCheckId(id, type))} />
         <figcaption>
             <h3>{name}</h3>
             <h4>{date?.replaceAll("-", "/")}</h4>
@@ -36,7 +36,7 @@ const Card = ({ id, image, name, date, actionClick, resFav}) => {
                location.pathname === '/profile' ? <ButtonIcon variant='primary' theme={theme} onClick={() => actionClick()}><MdDeleteForever /></ButtonIcon> : <ButtonIcon variant='primary' theme={theme} onClick={() => actionClick()}><MdFavorite /></ButtonIcon> 
             } */}
 <ButtonIcon variant='primary' theme={theme} onClick={() => actionClick()}><MdFavorite style={{
-    color: resFav.favoritos.some((fav) => fav.id == id) ? "red" : "white" 
+    color: resFav?.favoritos?.some((fav) => fav.id == id) ? "red" : "white" 
 }}/></ButtonIcon> 
         </figcaption>
     </figure>

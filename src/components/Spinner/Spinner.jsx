@@ -2,10 +2,10 @@ import "./Spinner.css"
 
 const Spinner = () => {
   return (
-    <div class="loader-circle">
-        <p class="loader-content">LOADING</p>
-        <div class="loader-line-mask">
-            <div class="loader-line"></div>
+    <div className="loader-circle">
+        <p className="loader-content">LOADING</p>
+        <div className="loader-line-mask">
+            <div className="loader-line"></div>
         </div>
     </div>
   )

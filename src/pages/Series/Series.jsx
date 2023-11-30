@@ -45,7 +45,7 @@ const Series = () => {
     const userData = localStorage.getItem('userApp')
     const userDataParse = JSON.parse(userData)
 
-    const newFavorite =  { id: id, title: title, poster, date, type: 'movie'};
+    const newFavorite =  { id: id, title: title, poster, date, type: 'serie'};
 
     const favorites = userDataParse.favoritos
     console.log(userDataParse);

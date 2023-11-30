@@ -15,7 +15,7 @@ const Movies = () => {
   const [filteredMovies, setFilteredMovies] = useState([]);
   const [noResultFiltered, setNoResultFiltered] = useState(false); //Estado para comprobar la longitud cuando se realice la búsqueda del filtro
 
-
+ 
   const loadPageMovies = async (page) => {
     const dataMovies = await getAllMovies(page);
     //setData(dataProject);
@@ -26,23 +26,6 @@ const Movies = () => {
     console.log(resFav);
     setRes(dataMovies)
 }
-  // const handleClick = (id, title, poster, date) => {
-  
-  //   const favorites = JSON.parse(localStorage.getItem(`${user}-Favorites`));
-
-
-  //   const newFavorite =  { id: id, title: title, poster, date, type: 'movie'};
-    
-
-  //   if (!favorites.some((favorite) => favorite.id === newFavorite.id)) {
-  //     const addFavorite = [...favorites, newFavorite];
-  //     !favorites
-  //       ? localStorage.setItem(`${user}-Favorites`, JSON.stringify(newFavorite))
-  //       : localStorage.setItem(`${user}-Favorites`, JSON.stringify(addFavorite));
-  //   }
-     
-    
-  // };
 
   const handleClickFavorites = (id, title, poster, date) => {
     setAddFav(() => true)

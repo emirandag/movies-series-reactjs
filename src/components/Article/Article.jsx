@@ -5,17 +5,14 @@ import './Article.css'
 
 const Article = ({ item, characters, type}) => {
 
-    console.log(characters);
+    console.log(type);
   return (
     <>
         {item === undefined || characters === undefined ? 
         <Spinner />
-        // <div className='loading'><h1>Loading...</h1></div> 
         
         : (
 
-        
-            
             type === 'movie' ? (
                 <>
                             <article className='article' key={item.id}>

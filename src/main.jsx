@@ -15,6 +15,7 @@ import Page404 from './pages/Page404/Page404';
 import Profile from './pages/Profile/Profile';
 import SerieDetails from './pages/SerieDetails/SerieDetails';
 import Series from './pages/Series/Series';
+import ProfileDetails from './pages/ProfileDetails/ProfileDetails';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -37,7 +38,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                 element={
                   <Protected>
                     <Movies />
-                  </Protected>
+                   </Protected>
                 }
               />
               <Route
@@ -61,6 +62,15 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                 element={
                   <Protected>
                     <SerieDetails />
+                  </Protected>
+                }
+              />
+
+<Route
+                path="/profile/:id"
+                element={
+                  <Protected>
+                    <ProfileDetails />
                   </Protected>
                 }
               />

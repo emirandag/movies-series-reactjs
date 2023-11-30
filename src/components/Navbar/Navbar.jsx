@@ -14,17 +14,26 @@ const Navbar = () => {
     <div className="navbar">
       <div className="nav-logo">Movies&TV</div>
 
+      {user && (
         <nav className={`nav-items ${isOpen && 'open'}`}>
           <ul>
             <li>
-              <NavLink to="/" onClick={() => setIsOpen(!isOpen)}>Películas</NavLink>
+              <NavLink to="profile" onClick={() => setIsOpen(!isOpen)}>Favoritos</NavLink>
+            </li>
+            <li>
+              <NavLink to="movies" onClick={() => setIsOpen(!isOpen)}>Películas</NavLink>
             </li>
             <li>
               <NavLink to="series" onClick={() => setIsOpen(!isOpen)}>Series</NavLink>
             </li>
           </ul>
         </nav>
-      <div className="nav-buttons"></div>
+      )}
+      {/* {user && ( */}
+        <div className="nav-buttons">
+          {/* <ButtonStyle variant='secondary' theme={theme} onClick={() => logout()}>Logout</ButtonStyle> */}
+        </div>
+      {/* )} */}
       <div
         className={`nav-toggle ${isOpen && 'open'}`}
         onClick={() => setIsOpen(!isOpen)}
